@@ -1,0 +1,139 @@
+﻿<UserControl
+    x:Class="FUMiniHotelSystem.AdminController.RoomManagementView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="900"
+    mc:Ignorable="d">
+
+    <Border
+        Margin="10"
+        Padding="30"
+        Background="#f8f9fc"
+        CornerRadius="12">
+        <DockPanel LastChildFill="True">
+
+            <!--  Title  -->
+            <TextBlock
+                Margin="0,0,0,20"
+                DockPanel.Dock="Top"
+                FontSize="28"
+                FontWeight="Bold"
+                Foreground="#1d3557"
+                Text="Room Management" />
+
+            <!--  Search and Buttons in one row  -->
+            <StackPanel
+                Margin="0,0,0,20"
+                HorizontalAlignment="Stretch"
+                DockPanel.Dock="Top"
+                Orientation="Horizontal">
+
+                <!--  Search box  -->
+                <StackPanel Width="465" Orientation="Horizontal">
+                    <TextBox
+                        Width="300"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                        ToolTip="Search by number or description..." />
+                    <Button
+                        Width="80"
+                        Height="30"
+                        Background="#1d3557"
+                        Command="{Binding SearchCommand}"
+                        Content="Search"
+                        FontWeight="SemiBold"
+                        Foreground="White" />
+                </StackPanel>
+
+                <!--  Action buttons  -->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button
+                        Width="100"
+                        Height="30"
+                        Margin="20,0,10,0"
+                        Background="#2a9d8f"
+                        Command="{Binding InsertCommand}"
+                        Content="Add"
+                        FontWeight="SemiBold"
+                        Foreground="White" />
+                    <Button
+                        Width="100"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        Background="#e9c46a"
+                        Command="{Binding UpdateCommand}"
+                        Content="Edit"
+                        FontWeight="SemiBold"
+                        Foreground="White" />
+                    <Button
+                        Width="100"
+                        Height="30"
+                        Background="#e76f51"
+                        Command="{Binding DeleteCommand}"
+                        Content="Delete"
+                        FontWeight="SemiBold"
+                        Foreground="White" />
+                </StackPanel>
+            </StackPanel>
+
+            <!--  DataGrid (Room list)  -->
+            <Border
+                Grid.Row="2"
+                BorderBrush="#bfc0c0"
+                BorderThickness="1"
+                CornerRadius="12">
+                <DataGrid
+                    Margin="0,-1,0,0"
+                    AutoGenerateColumns="False"
+                    BorderThickness="0"
+                    CanUserAddRows="False"
+                    GridLinesVisibility="Horizontal"
+                    HeadersVisibility="Column"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding Rooms}"
+                    RowHeight="36"
+                    ScrollViewer.CanContentScroll="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+                    SelectionMode="Single"
+                    SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="50"
+                            Binding="{Binding RoomID}"
+                            Header="ID" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding RoomNumber}"
+                            Header="Number" />
+                        <DataGridTextColumn
+                            Width="200"
+                            Binding="{Binding RoomDescription}"
+                            Header="Description" />
+                        <DataGridTextColumn
+                            Width="80"
+                            Binding="{Binding RoomMaxCapacity}"
+                            Header="Capacity" />
+                        <DataGridTextColumn
+                            Width="90"
+                            Binding="{Binding RoomPricePerDate}"
+                            Header="Price" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding RoomStatusText}"
+                            Header="Status" />
+                        <DataGridTextColumn
+                            Width="120"
+                            Binding="{Binding RoomType.RoomTypeName}"
+                            Header="Type" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </DockPanel>
+    </Border>
+</UserControl>

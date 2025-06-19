@@ -1,0 +1,72 @@
+﻿<Window
+    x:Class="FUMiniHotelSystem.CustomerController.ProfileDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Customer Profile"
+    Width="500"
+    Height="371"
+    Background="#f8f9fa"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
+    <Border
+        Margin="20"
+        Padding="20"
+        Background="White"
+        BorderBrush="#ced4da"
+        BorderThickness="1"
+        CornerRadius="12">
+        <StackPanel>
+            <TextBlock
+                Width="233"
+                Margin="0,0,0,20"
+                FontSize="24"
+                FontWeight="Bold"
+                Foreground="#1d3557"
+                Text="👤 Customer Profile" />
+
+            <!--  Full Name  -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock FontWeight="SemiBold" Text="Full Name" />
+                <TextBox
+                    Background="#e9ecef"
+                    IsReadOnly="True"
+                    Text="{Binding CustomerFullName}" />
+            </StackPanel>
+
+            <!--  Telephone  -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock FontWeight="SemiBold" Text="Phone" />
+                <TextBox
+                    Background="#e9ecef"
+                    IsReadOnly="True"
+                    Text="{Binding Telephone}" />
+            </StackPanel>
+
+            <!--  Email  -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock FontWeight="SemiBold" Text="Email" />
+                <TextBox
+                    Background="#e9ecef"
+                    IsReadOnly="True"
+                    Text="{Binding EmailAddress}" />
+            </StackPanel>
+
+            <!--  Birthday  -->
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock FontWeight="SemiBold" Text="Birthday" />
+                <TextBox
+                    Background="#e9ecef"
+                    IsReadOnly="True"
+                    Text="{Binding CustomerBirthday, StringFormat='{}{0:dd/MM/yyyy}'}" />
+            </StackPanel>
+
+            <Button
+                Width="100"
+                HorizontalAlignment="Right"
+                Background="#6c757d"
+                Click="Close_Click"
+                Content="Close"
+                Foreground="White" />
+        </StackPanel>
+    </Border>
+</Window>

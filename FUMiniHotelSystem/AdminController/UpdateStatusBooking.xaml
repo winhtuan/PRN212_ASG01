@@ -1,0 +1,89 @@
+﻿<Window
+    x:Class="FUMiniHotelSystem.AdminController.UpdateStatusBooking"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Update Booking Status"
+    Width="420"
+    Height="372"
+    Background="#f8f9fa"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Room Number  -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,12">
+            <TextBlock FontWeight="SemiBold" Text="Room Number" />
+            <TextBox
+                x:Name="RoomNumberBox"
+                Height="30"
+                Background="#e9ecef"
+                FontSize="14"
+                IsReadOnly="True" />
+        </StackPanel>
+
+        <!--  Check-In Date  -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,12">
+            <TextBlock FontWeight="SemiBold" Text="Check-In Date" />
+            <DatePicker
+                x:Name="CheckInDatePicker"
+                Height="30"
+                IsEnabled="False" />
+        </StackPanel>
+
+        <!--  Check-Out Date  -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,12">
+            <TextBlock FontWeight="SemiBold" Text="Check-Out Date" />
+            <DatePicker
+                x:Name="CheckOutDatePicker"
+                Height="30"
+                IsEnabled="False" />
+        </StackPanel>
+
+        <!--  Status Selection  -->
+        <StackPanel Grid.Row="3" Margin="0,0,0,12">
+            <TextBlock FontWeight="SemiBold" Text="Booking Status" />
+            <ComboBox
+                x:Name="StatusComboBox"
+                Height="30"
+                FontSize="14">
+                <ComboBoxItem Content="Pending" />
+                <ComboBoxItem Content="Approved" />
+                <ComboBoxItem Content="Cancelled" />
+            </ComboBox>
+        </StackPanel>
+
+        <!--  Buttons  -->
+        <StackPanel
+            Grid.Row="4"
+            Margin="0,20,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Width="100"
+                Height="30"
+                Margin="0,0,10,0"
+                Background="#adb5bd"
+                Click="Cancel_Click"
+                Content="Cancel"
+                Foreground="White" />
+            <Button
+                Width="100"
+                Height="30"
+                Background="#2a9d8f"
+                Click="Update_Click"
+                Content="Update"
+                Foreground="White" />
+        </StackPanel>
+    </Grid>
+</Window>

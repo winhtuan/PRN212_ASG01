@@ -1,0 +1,37 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio folder
+.vs/
+
+# Backup and temporary files
+*.log
+*.tmp
+*.bak
+
+# NuGet packages
+packages/
+*.nupkg
+project.lock.json
+
+# ReSharper (nếu dùng)
+_ReSharper*/
+
+# Rider IDE
+.idea/
+
+# Publish output
+publish/
+
+# Windows crash logs
+*.wer
+
+# Others
+Thumbs.db
